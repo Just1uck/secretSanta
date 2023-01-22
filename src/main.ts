@@ -6,6 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(json({ limit: '50mb' }));
   app.use(urlencoded({ extended: true, limit: '50mb' }));
-  await app.listen(process.env.PORT || 5002);
+  const PORT = process.env.PORT || 4000;
+  await app.listen(PORT,() => console.log(`Server running on port ${PORT}`));
 }
 bootstrap();
