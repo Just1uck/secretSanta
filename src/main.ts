@@ -1,12 +1,13 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { urlencoded, json } from 'express';
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
+import { urlencoded, json } from "express";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.use(json({ limit: '50mb' }));
-  app.use(urlencoded({ extended: true, limit: '50mb' }));
+  app.use(json({ limit: "50mb" }));
+  app.use(urlencoded({ extended: true, limit: "50mb" }));
   const PORT = process.env.PORT || 4000;
-  await app.listen(PORT,() => console.log(`Server running on port ${PORT}`));
+  await app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
+
 bootstrap();

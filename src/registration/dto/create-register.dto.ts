@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty } from "class-validator";
+import { IsBoolean, IsEmail, IsNotEmpty } from "class-validator";
 
 export class CreateRegisterDto {
   @IsEmail()
@@ -9,8 +9,10 @@ export class CreateRegisterDto {
   readonly firstname: string;
   @IsNotEmpty()
   readonly secondname: string;
-  readonly notificationToken:any
+  @IsBoolean()
+  readonly isMan: boolean;
+  readonly notificationToken: any;
   role: string;
-  wishList:[];
+  wishList: [];
   _id: number;
 }

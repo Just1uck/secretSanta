@@ -2,22 +2,24 @@ import { IsArray, IsBase64, IsBoolean, IsDate, IsNumber, IsString } from "class-
 
 export class HolidaysDto {
   @IsBoolean()
-  isStarted:boolean
+  isStarted: boolean;
   @IsString()
-  operation:string
+  operation: string;
   @IsArray()
-  readonly users: []
+  readonly users: [];
   @IsArray()
-  startUsers:any[]
+  startUsers: any[];
   @IsDate()
-  readonly date: Date
+  readonly date: Date;
   @IsString()
-  readonly title:string
+  readonly title: string;
   @IsString()
-  readonly description:string
+  readonly description: string;
   @IsNumber()
-  readonly maxPrice:number
+  readonly maxPrice: number;
   @IsBase64()
-  readonly base64:string
-  readonly partyId:string
+  readonly base64: string;
+  @IsString()
+  readonly mode: string;
+  readonly partyId: string;
 }

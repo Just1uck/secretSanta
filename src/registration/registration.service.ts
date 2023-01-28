@@ -10,45 +10,41 @@ export class RegistrationService {
   constructor(@InjectModel(Register.name) private registerModule: Model<RegisterDocument>) {
   }
 
-  async getAll():Promise<Register[]> {
-    return this.registerModule.find().exec()
+  async getAll(): Promise<Register[]> {
+    return this.registerModule.find().exec();
   }
 
-  async getById(id):Promise<any> {
-    return this.registerModule.findById(id)
+  async getById(id): Promise<any> {
+    return this.registerModule.findById(id);
   }
 
-  async getByIdAndUpdate(id,newWishList):Promise<any>{
-   return this.registerModule.findByIdAndUpdate(id,{wishList: newWishList},{new:true})
+  async getByIdAndUpdate(id, newWishList): Promise<any> {
+    return this.registerModule.findByIdAndUpdate(id, { wishList: newWishList }, { new: true });
   }
 
   async findOne(email) {
-    return this.registerModule.findOne(email)
+    return this.registerModule.findOne(email);
   }
 
   async create(createDto: CreateRegisterDto): Promise<any> {
-    // Получим список всех юзеров
-    const allUsers = await this.registerModule.find().exec()
-    // Проверка на повторение эмэйла
-    let ifRepeat = false
-    allUsers.map((el)=>{
+    const allUsers = await this.registerModule.find().exec();
+    let ifRepeat = false;
+    allUsers.map((el) => {
       if (el.email === createDto.email) {
-        ifRepeat = true
+        ifRepeat = true;
       }
-    })
+    });
     if (ifRepeat) {
-      return 'Email has been registered'
+      return "Email has been registered";
     } else {
-      // Если все ок - сохраняем
-      createDto.wishList=[]
-      createDto.role='user'
-      const newUser = new this.registerModule(createDto)
+      createDto.wishList = [];
+      createDto.role = "user";
+      const newUser = new this.registerModule(createDto);
       try {
-        await newUser.save()
-        return newUser
+        await newUser.save();
+        return newUser;
       } catch (e) {
-        console.log('All fields req')
-        return false
+        return false;
       }
     }
   }
