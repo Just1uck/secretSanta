@@ -9,6 +9,8 @@ export class HolidaysDto {
   readonly users: [];
   @IsArray()
   startUsers: any[];
+  @IsArray()
+  favorite: any[];
   @IsDate()
   readonly date: Date;
   @IsString()

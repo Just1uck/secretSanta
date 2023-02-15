@@ -21,6 +21,8 @@ export class Register {
   notificationToken: string;
   @Prop({ required: true })
   isMan: boolean;
+  @Prop({required:true})
+  userAvatar: string;
 }
 
 export const RegisterSchema = SchemaFactory.createForClass(Register);

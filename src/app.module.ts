@@ -7,6 +7,7 @@ import { LoginModule } from "./login/login.module";
 import { IsTokenRightMiddleware } from "./middleware/is-token-right.middleware";
 import { JwtModule } from "@nestjs/jwt";
 import { HolidaysModule } from './holidays/holidays.module';
+import { SettingsModule } from './settings/settings.module';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { HolidaysModule } from './holidays/holidays.module';
     MongooseModule.forRoot("mongodb+srv://just1uck:nmBPLG4413wQ@cluster0.7cov8zl.mongodb.net/?retryWrites=true&w=majority"),
     LoginModule,
     JwtModule.register({ secret: 'hard!to-guess_secret' }),
-    HolidaysModule
+    HolidaysModule,
+    SettingsModule
   ],
   controllers: [AppController],
   providers: [AppService]

@@ -10,6 +10,8 @@ export class Holidays {
   @Prop({ required: true })
   startUsers: [];
   @Prop({ required: true })
+  favorite: [];
+  @Prop({ required: true })
   users: [];
   @Prop({ required: true })
   date: Date;

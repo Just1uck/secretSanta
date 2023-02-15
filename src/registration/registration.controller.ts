@@ -22,7 +22,7 @@ export class RegistrationController {
   async getAssistantWish(
     @Body() body
   ): Promise<any> {
-    return this.userService.getById(body.idAssistant);
+    return this.userService.getById(body);
   }
 
   @Post()

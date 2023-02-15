@@ -44,8 +44,8 @@ export class LoginController {
 
   @Put()
   async Wishes(@Body() body: WishesDto): Promise<any> {
-    const user = await this.registrationService.getById(body.userId)
-    const oldWishList = user.wishList
+    const user = await this.registrationService.getById([body.userId])
+    const oldWishList = user[0].wishList
     if (body.operation === 'add') {
       return await this.registrationService.getByIdAndUpdate(body.userId,[...oldWishList,{
         title: body.title,

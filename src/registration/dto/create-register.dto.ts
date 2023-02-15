@@ -15,4 +15,5 @@ export class CreateRegisterDto {
   role: string;
   wishList: [];
   _id: number;
+  userAvatar:string;
 }
