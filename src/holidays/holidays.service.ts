@@ -137,7 +137,7 @@ export class HolidaysService {
       const updated = await this.holidayModule.findByIdAndUpdate(body.holidayId, { favorite: [...oldArray.filter(item => item !== body.userId)] });
       return updated;
     } else {
-      return;
+      return null;
     }
   }
 }
