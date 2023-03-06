@@ -98,6 +98,7 @@ export class HolidaysService {
     oldUsers[indexUser].firstname = getNewUser.firstname
     oldUsers[indexUser].secondname = getNewUser.secondname
     oldUsers[indexUser].userAvatar = getNewUser.userAvatar
+    oldUsers[indexUser].delivery = getNewUser.delivery
     let test = await this.holidayModule.findByIdAndUpdate(idParty,{
       users:oldUsers
     })
@@ -113,7 +114,8 @@ export class HolidaysService {
           secondname: body.secondname,
           userAvatar: body.userAvatar,
           isMan: body.isMan,
-          notificationToken: body.notificationToken
+          notificationToken: body.notificationToken,
+          delivery: body.delivery
         }]
       });
       return updated;

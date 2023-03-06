@@ -44,11 +44,12 @@ export class RegistrationController {
     } else {
       const token = this.loginService.generateAccesToken(newUser._id, newUser.role);
       res.cookie("userToken", token);
-      return res.status(HttpStatus.CREATED).send({
+      res.status(HttpStatus.CREATED).send({
         statusCode: HttpStatus.CREATED,
         message: newUser,
         token
       });
+      return res
     }
   }
 }

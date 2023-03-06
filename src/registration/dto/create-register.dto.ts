@@ -16,4 +16,5 @@ export class CreateRegisterDto {
   wishList: [];
   _id: number;
   userAvatar:string;
+  delivery: [];
 }

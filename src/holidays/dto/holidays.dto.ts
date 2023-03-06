@@ -24,4 +24,6 @@ export class HolidaysDto {
   @IsString()
   readonly mode: string;
   readonly partyId: string;
+  @IsArray()
+  readonly delivery: [];
 }

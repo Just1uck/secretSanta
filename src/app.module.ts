@@ -8,6 +8,7 @@ import { IsTokenRightMiddleware } from "./middleware/is-token-right.middleware";
 import { JwtModule } from "@nestjs/jwt";
 import { HolidaysModule } from './holidays/holidays.module';
 import { SettingsModule } from './settings/settings.module';
+import { ReqmiddleMiddleware } from "./middleware/reqmiddle.middleware";
 
 @Module({
   imports: [
@@ -25,6 +26,9 @@ export class AppModule {
   configure(consumer:MiddlewareConsumer) {
     consumer
       .apply(IsTokenRightMiddleware)
-      .forRoutes({path:'holidays', method: RequestMethod.GET})
+      .forRoutes({path:'holidays', method: RequestMethod.GET});
+    consumer
+      .apply(ReqmiddleMiddleware)
+      .forRoutes({path:'registration', method: RequestMethod.POST})
   }
 }

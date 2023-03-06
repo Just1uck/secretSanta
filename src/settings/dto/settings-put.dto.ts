@@ -1,4 +1,4 @@
-import { IsString } from "class-validator";
+import { IsArray, IsString } from "class-validator";
 
 export class SettingsPutDto {
   @IsString()
@@ -9,4 +9,6 @@ export class SettingsPutDto {
   readonly userAvatar:string
   @IsString()
   readonly id:string
+  @IsArray()
+  readonly delivery: []
 }
